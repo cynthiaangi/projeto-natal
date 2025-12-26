@@ -5,19 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amigo Secreto</title>
+    <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./styles.css">
 </head>
 
-<body>
+<body onload="verificar()">
     <img src="./natal-header.png" alt="">
-    <h1>Quem começa o amigo secreto?</h1>
-    <div class="participantes">
-        <button onclick="verificar()">Verificar participantes</button>
-        <div id="div_participantes"></div>
-    </div>
-    <div class="sorteio">
-        <button onclick="sortearParticipante()">Sortear!</button>
-        <div id="div_sorteio"></div>
+    <h1>Nosso Amigo Secreto</h1>
+    <div class="cards-participantes">
+        <div class="card">
+            <p>Participantes</p>
+            <div class="participantes">
+                <div id="lista_participantes"></div>
+            </div>
+        </div>
+        <div class="card sorteio">
+            <button onclick="sortear()">Sortear!</button>
+            <div id="div_sorteio"></div>
+        </div>
     </div>
     <div class="pergunta">
         <button onclick="sortearPergunta()">Fazer pergunta</button>

@@ -227,38 +227,40 @@ function verificar() {
 
     var participantes = '';
 
-    for (var i = 0; i < quantidade_pessoas; i++) {
-        participantes += `${pessoas[i]} <br>`;
-    }
-
-    div_participantes.innerHTML = participantes;
+    pessoas.forEach((pessoa) => {
+      participantes += `- ${pessoa.nome} <br>`;
+    });
+    lista_participantes.innerHTML = participantes;
 }
 
-function sortearParticipante() {
-    var participante = document.getElementById("div_participantes");
-    participante.style.display = 'none';
-    var numeroSorte = (Number(Math.random()) * quantidade_pessoas);
+function sortear() {
+  var numeroSorte = -1;
+    do {
+      if(quantidade_pessoas == pessoasEscolhidas.length){
+          alert("Todos os participantes já foram sorteados!");
+          return;
+      }
+    numeroSorte = (Number(Math.random()) * quantidade_pessoas);
     numeroSorte = parseInt(numeroSorte);
-    var primeiroAmigo = '';
-    
-    // if(pessoasEscolhidas.length > 0) {
-    //     pessoasEscolhidas.find((pessoa) => {
-    //         if(numeroSorte + 1 == pessoa.id){
-    //             sortearParticipante();
-    //         }
-    //     });
-    // }
+    } while (pessoasEscolhidas.find((pessoa) => {
+        return numeroSorte + 1 == pessoa.id;
+    }));
+    mostrarParticipante(numeroSorte);
+}
 
-    console.log(pessoasEscolhidas);
+function mostrarParticipante(numeroSorte) {
+  var primeiroAmigo = '';
 
-   pessoas.find((pessoa) => {
-        if(numeroSorte + 1 == pessoa.id){
-            primeiroAmigo = pessoa.nome;
-            pessoasEscolhidas.push(pessoa);
-        }
-   })
+  console.log(pessoasEscolhidas);
 
-    div_sorteio.innerHTML = primeiroAmigo;
+  pessoas.find((pessoa) => {
+      if(numeroSorte + 1 == pessoa.id){
+          primeiroAmigo = pessoa.nome;
+          pessoasEscolhidas.push(pessoa);
+      }
+  })
+
+  div_sorteio.innerHTML = primeiroAmigo;
 }
 
 function sortearPergunta() {

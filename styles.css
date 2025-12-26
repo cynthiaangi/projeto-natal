@@ -9,6 +9,8 @@ body {
 }
 
 h1 {
+    font-size: 24px;
+    font-weight: 600;
     color: #233224;
 }
 
@@ -16,10 +18,34 @@ img {
     width: 60%;
 }
 
+.cards-participantes {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    border: 1px solid #233224;
+    border-radius: 16px;
+    width: 25%;
+    background-color: #ffffffa1;
+}
+
 .participantes {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+p {
+    color: #233224;
+    text-align: center;
+    background-color: #ff0000;
+    border-radius: 15px 15px 0 0;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sorteio {
@@ -39,7 +65,7 @@ button:hover {
 }
 
 #div_participantes {
-    text-align: center;
+    text-align: start;
     font-weight: 600;
     color: #233224;
 }
